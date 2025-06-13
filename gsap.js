@@ -193,10 +193,24 @@ gsap.from(".product-card", {
   x: 100,
   opacity: 0.2,
   scale:0.5,
-  duration: 0.5,
-  stagger: 0.1,
+  duration: 0.3,
+  stagger: 0,
   scrollTrigger: {
-    trigger: ".carousel",
+    trigger: ".itemsCarousel h1",
     scroller: "body",
+    start: "top 100%",
+    scrub:2,
   },
 });
+
+gsap.to(".logoAnimation h1",{
+  transform: "translateX(-50%)",
+  scrollTrigger:{
+    trigger: ".logoAnimation",
+    scroller:"body",
+    start:"top 0%",
+    end:"top -130%",
+    scrub:3,
+    pin:true
+  }
+})
