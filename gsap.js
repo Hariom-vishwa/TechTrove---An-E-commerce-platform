@@ -150,6 +150,19 @@ items.forEach((product) => {
   carousel.appendChild(card);
 });
 
+var path = `M 10 100 Q 500 100 990 100`;
+
+var finalPath = `M 10 100 Q 500 100 990 100`;
+
+var string = document.querySelector(".string");
+
+string.addEventListener("mousemove",function(dets){
+  path = `M 10 100 Q ${dets.x} ${dets.y} 990 100`
+  gsap.to("svg path", {
+    attr:{d:path}
+  })
+});
+
 // ------------------- This is GSAP part --------------------
 
 var all = gsap.timeline();
@@ -192,25 +205,25 @@ all.from(".content", {
 gsap.from(".product-card", {
   x: 100,
   opacity: 0.2,
-  scale:0.5,
+  scale: 0.5,
   duration: 0.3,
   stagger: 0,
   scrollTrigger: {
     trigger: ".itemsCarousel h1",
     scroller: "body",
     start: "top 100%",
-    scrub:2,
+    scrub: 2,
   },
 });
 
-gsap.to(".logoAnimation h1",{
+gsap.to(".logoAnimation h1", {
   transform: "translateX(-50%)",
-  scrollTrigger:{
+  scrollTrigger: {
     trigger: ".logoAnimation",
-    scroller:"body",
-    start:"top 0%",
-    end:"top -130%",
-    scrub:3,
-    pin:true
-  }
-})
+    scroller: "body",
+    start: "top 0%",
+    end: "top -130%",
+    scrub: 3,
+    pin: true,
+  },
+});

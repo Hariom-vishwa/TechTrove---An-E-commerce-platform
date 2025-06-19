@@ -173,3 +173,14 @@ body {
 .logoAnimation h1{
   font-size: 38vw;
 }
+
+.string{
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.string svg{
+  display: grid;
+  place-items: center;
+}
