@@ -120,6 +120,26 @@ const items = [
     stock: 50,
   },
 ];
+// ----- Categories ------
+
+const categories = [
+  {
+    img: "https://itronics.in/wp-content/uploads/2024/09/iPhone_16_Plus_Teal_PDP_Image_Position_1__en-IN.png",
+    category: "Mobile",
+  },
+  {
+    img: "https://static0.xdaimages.com/wordpress/wp-content/uploads/2024/09/hp-omnibook-ultra-flip-14.png",
+    category: "Laptops",
+  },
+  {
+    img: "https://www.pngarts.com/files/8/Airpod-PNG-Image-Transparent-Background.png",
+    category: "Earphones",
+  },
+  {
+    img: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
+    category: "Smartwatches",
+  },
+];
 
 let carousel = document.querySelector(".carousel");
 
@@ -150,17 +170,17 @@ items.forEach((product) => {
   carousel.appendChild(card);
 });
 
-var path = `M 10 100 Q 500 100 990 100`;
+// Categories
 
-var finalPath = `M 10 100 Q 500 100 990 100`;
+categories.forEach((item) => {
+  let itemsCont = document.querySelector(".categories .items");
 
-var string = document.querySelector(".string");
-
-string.addEventListener("mousemove",function(dets){
-  path = `M 10 100 Q ${dets.x} ${dets.y} 990 100`
-  gsap.to("svg path", {
-    attr:{d:path}
-  })
+  itemsCont.innerHTML += `
+  <div class="item">
+    <img src=${item.img} alt=${item.category}/>
+    <a href="#">${item.category}</a>
+  </div>
+  `;
 });
 
 // ------------------- This is GSAP part --------------------
@@ -169,15 +189,15 @@ var all = gsap.timeline();
 
 all.from(".nav", {
   y: -100,
-  duration: 0.5,
-  delay: 0.5,
+  duration: 0.2,
+  delay: 0.2,
 });
 
 all.from(".logo", {
   x: 50,
   y: -50,
   opacity: 0,
-  duration: 0.5,
+  duration: 0.2,
 });
 
 all.from(".navItems", {
@@ -190,34 +210,34 @@ all.from(".navItems", {
 
 all.from(".hero img", {
   opacity: 0,
-  duration: 1,
+  duration: 0.3,
   scale: 0.2,
 });
 
 all.from(".content", {
   x: 50,
-  y: -50,
   opacity: 0,
-  duration: 0.3,
-  stagger: 0.3,
+  duration: 0.1,
+  stagger: 0.1,
 });
 
 gsap.from(".product-card", {
   x: 100,
   opacity: 0.2,
   scale: 0.5,
-  duration: 0.3,
-  stagger: 0,
+  duration: 0.5,
+  stagger: 0.5,
   scrollTrigger: {
-    trigger: ".itemsCarousel h1",
+    trigger: ".carousel",
     scroller: "body",
     start: "top 100%",
+    end: "bottom 100%",
     scrub: 2,
   },
 });
 
 gsap.to(".logoAnimation h1", {
-  transform: "translateX(-50%)",
+  transform: "translateX(-45%)",
   scrollTrigger: {
     trigger: ".logoAnimation",
     scroller: "body",
@@ -225,5 +245,19 @@ gsap.to(".logoAnimation h1", {
     end: "top -130%",
     scrub: 3,
     pin: true,
+  },
+});
+
+gsap.from(".categories .items .item", {
+  y: 100,
+  opacity: 0.2,
+  duration: 0.2,
+  stagger: 0.2,
+  scrollTrigger: {
+    trigger: ".categories",
+    scroller: "body",
+    start: "top 80%",
+    end: "bottom 100%",
+    scrub: 2,
   },
 });

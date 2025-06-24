@@ -1,9 +1,19 @@
+/* Font Import */
+
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Jockey+One&display=swap");
+
+:root {
+  --pri-font: "Cal Sans", sans-serif;
+  --sec-font: "Jockey One", sans-serif;
+  --pri-col: #000;
+  --sec-col: burlywood;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: monospace;
-  text-transform: uppercase;
+  /* border: 1px solid lime; */
 }
 
 html,
@@ -13,13 +23,13 @@ body {
 }
 
 body {
-  background: #000;
-  color: burlywood;
+  background: var(--pri-col);
+  color: var(--sec-col);
 }
 
 .nav {
-  background: burlywood;
-  color: #000;
+  background: var(--sec-col);
+  color: var(--pri-col);
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -28,7 +38,9 @@ body {
 }
 
 .logo {
-  font-size: 35px;
+  font-family: var(--sec-font);
+  letter-spacing: 3px;
+  font-size: 2.5vw;
 }
 
 .sideNav {
@@ -36,6 +48,15 @@ body {
   justify-content: space-evenly;
   align-items: center;
   gap: 50px;
+}
+
+.sideNav a {
+  text-decoration: none;
+  color: var(--pri-col);
+  font-family: var(--pri-font);
+  letter-spacing: 1px;
+  font-size: 1vw;
+  font-weight: 200;
 }
 
 .hero {
@@ -67,34 +88,45 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 30px;
+  gap: 1.5vw;
 }
 
 .hero .sideSection h3 {
-  font-size: 20px;
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  font-family: var(--sec-font);
+  letter-spacing: 2px;
 }
 
 .hero .sideSection h1 {
-  font-size: 45px;
+  text-transform: uppercase;
+  font-family: var(--pri-font);
+  letter-spacing: 3px;
+  font-size: 4vw;
 }
 
 .hero .sideSection p {
-  font-size: 15px;
+  font-family: var(--sec-font);
+  letter-spacing: 1px;
+  font-size: 1vw;
 }
 
 .hero .sideSection button {
+  font-family: var(--sec-font);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1vw;
   padding: 10px 30px;
-  background-color: #000;
-  border: 2px solid burlywood;
+  background-color: var(--pri-col);
+  border: 2px solid var(--sec-col);
   border-radius: 5px;
-  color: burlywood;
-  font-weight: 600;
+  color: var(--sec-col);
 }
 
 .hero .sideSection button:hover {
-  background: burlywood;
-  color: #000;
-  border: 2px solid #000;
+  background: var(--sec-col);
+  color: var(--pri-col);
+  border: 2px solid var(--pri-col);
 }
 
 .itemsCarousel {
@@ -102,7 +134,7 @@ body {
   min-height: 400px;
   max-height: 100%;
   padding: 50px;
-  background: burlywood;
+  background: var(--sec-col);
   color: #222;
   display: flex;
   flex-direction: column;
@@ -111,11 +143,18 @@ body {
   gap: 50px;
 }
 
+.itemsCarousel h1 {
+  font-size: 2.5vw;
+  font-family: var(--pri-font);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
 .itemsCarousel .carousel {
   width: 95%;
   height: auto;
   min-height: 300px;
-  padding: 50px;
+  padding: 2vw 4vw;
   background-color: #222;
   border-radius: 10px;
   display: flex;
@@ -133,17 +172,17 @@ body {
   width: 260px;
   min-height: 300px;
   height: calc(100% - 60px);
-  border: 2px solid burlywood;
+  border: 2px solid var(--sec-col);
   background: #fff;
-  color: #000;
-  padding: 20px;
+  color: var(--pri-col);
+  padding: 0.5vw;
   border-radius: 10px;
   box-sizing: border-box;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: start;
+  align-items: center;
 }
 
 .product-card img {
@@ -153,15 +192,30 @@ body {
   object-fit: contain;
 }
 
-.product-card .specs{
+.product-card .specs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 20px;
+  gap: 1vw;
 }
 
-.logoAnimation{
+.product-card .specs h2 {
+  font-family: var(--pri-font);
+  font-size: 1.2vw;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.product-card .specs p,
+.product-card .specs h3 {
+  font-family: var(--sec-font);
+  font-weight: 200;
+  font-size: 1vw;
+  letter-spacing: 1px;
+}
+
+.logoAnimation {
   width: 100%;
   height: 100%;
   padding: 0 100px;
@@ -170,17 +224,78 @@ body {
   overflow-x: hidden;
 }
 
-.logoAnimation h1{
-  font-size: 38vw;
+.logoAnimation h1 {
+  font-family: var(--sec-font);
+  letter-spacing: 3vw;
+  font-size: 30vw;
+  text-transform: uppercase;
 }
 
-.string{
+/* Categories  */
+
+.categories {
   width: 100%;
+  min-height: 60vh;
+  padding: 2vw 5vw 5vw 2vw;
+  background: var(--sec-col);
   display: grid;
   place-items: center;
+  gap: 2vw;
 }
 
-.string svg{
-  display: grid;
-  place-items: center;
+.categories h1 {
+  color: var(--pri-col);
+  font-size: 2.5vw;
+  font-family: var(--pri-font);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.categories .items {
+  min-width: 90%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.categories .items .item {
+  width: 18vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #fff;
+  padding: 1vw 0;
+  border-radius: 2vw;
+  position: relative;
+}
+
+.categories .items .item::after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  border-radius: 10% 50%;
+  background-color: rgba(222, 184, 135, 0.493);
+  position: absolute;
+  z-index: 8;
+  filter: blur(10px);
+}
+
+.categories .items .item img {
+  width: 90%;
+  height: 15vw;
+  object-fit: contain;
+  z-index: 9;
+}
+
+.categories .items .item a {
+  text-decoration: none;
+  color: var(--pri-col);
+  font-size: 1.5vw;
+  font-family: var(--sec-font);
+  letter-spacing: 1px;
+  font-weight: 400;
 }
