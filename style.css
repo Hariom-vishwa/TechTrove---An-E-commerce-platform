@@ -276,12 +276,13 @@ body {
 .categories .items .item::after {
   content: "";
   width: 150px;
-  height: 150px;
+  height: 30px;
   border-radius: 10% 50%;
-  background-color: rgba(222, 184, 135, 0.493);
+  background-color: rgba(73, 70, 65, 0.2);
   position: absolute;
   z-index: 8;
   filter: blur(10px);
+  bottom: 60px;
 }
 
 .categories .items .item img {
