@@ -140,36 +140,36 @@ categories.forEach((item) => {
 var all = gsap.timeline();
 
 all.from(".nav", {
-  y: -100,
-  duration: 0.2,
+  x: "-100%",
+  duration: 0.1,
   delay: 0.2,
 });
 
-all.from(".logo", {
+all.from(".nav .logo", {
   x: 50,
   y: -50,
   opacity: 0,
-  duration: 0.2,
+  duration: 0.05,
 });
 
 all.from(".navItems", {
   x: 50,
   y: -50,
   opacity: 0,
-  duration: 0.1,
+  duration: 0.05,
   stagger: 0.1,
 });
 
 all.from(".hero img", {
   opacity: 0,
-  duration: 0.3,
+  duration: 0.1,
   scale: 0.2,
 });
 
 all.from(".content", {
   x: 50,
   opacity: 0,
-  duration: 0.1,
+  duration: 0.05,
   stagger: 0.1,
 });
 
@@ -199,6 +199,21 @@ gsap.to(".logoAnimation h1", {
   },
 });
 
+// Custom Mouse Pointer Start
+
+var logoAnimation = document.querySelector(".logoAnimation");
+var pointer = document.querySelector(".logoAnimation .pointer");
+
+logoAnimation.addEventListener("mousemove", (dets) => {
+  gsap.to(pointer, {
+    x: `${dets.x}`,
+    y: `${dets.y}`,
+    duration: 0.1,
+  });
+});
+
+// Custom Mouse Pointer End 
+
 gsap.from(".categories .items .item", {
   y: 100,
   opacity: 0.2,
@@ -206,6 +221,20 @@ gsap.from(".categories .items .item", {
   stagger: 0.2,
   scrollTrigger: {
     trigger: ".categories",
+    scroller: "body",
+    start: "top 80%",
+    end: "bottom 100%",
+    scrub: 2,
+  },
+});
+
+var footerTl = gsap.timeline();
+
+footerTl.from("footer", {
+  y: -200,
+  duration: 0.2,
+  scrollTrigger: {
+    trigger: "footer",
     scroller: "body",
     start: "top 80%",
     end: "bottom 100%",
